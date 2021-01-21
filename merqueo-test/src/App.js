@@ -1,5 +1,5 @@
 import './App.css';
-import Coment from './components/post'
+import Post from './components/post'
 import Navbar from './components/layout/navbar'
 import styled from 'styled-components'
 
@@ -9,7 +9,6 @@ height: 100 em;
 width:100 em;
 .sub-container{
   margin: 2% 20%;
-  border: solid 1px #e0e0e0
 }
 `
 
@@ -18,8 +17,9 @@ function App() {
     <Container>
       <Navbar />
       <div className='sub-container'>
-        <Coment />
+      <Post/>
       </div>
+      
     </Container>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Comment from './comment';
 
 const PostBox = styled.div`
   width: 100%;
@@ -36,12 +37,16 @@ const PostBox = styled.div`
 
 const Post = () => {
   return (
+      <>
     <PostBox>
       <input className='post-write' type='text' placeholder='Escribe aqui tu estado' />
       <div className='content-button'>
-        <button className='send'>Publicar</button>
+      <i class="fas fa-user"></i>
+        <button className='send'>Publicar </button>
       </div>
     </PostBox>
+    <Comment/>
+    </>
     
   )
 }
