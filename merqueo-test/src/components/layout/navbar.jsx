@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Burger from './burger';
 
 const Nav = styled.nav`
+  background:#ffff;
   width: 100%;
   height: 55px;
   border-bottom: 2px solid #f1f1f1;
