@@ -1,67 +1,73 @@
 import React from 'react'
-import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import {CommetBox } from '../styles/styled'
 
-const CommetBox = styled.div`
-  width: 100%;
-  background:#ffff;  
-  color: #2acd6c;
-  .content-comment{
-   width:100%;
-   margin-top:2em;
-   height:10em;
-   display:flex;
-   padding:1em;
-  }
-  .send {
-    width: 8em;
-    height: 2em;
-    background: none;
-    color: #2acd6c;
-    margin: 0.5em;
-    border-radius: 5%;
-    border: none;
-  }
-  .content-button {
-    width: 100%;
-    background: #ffff;
-    border-top: 1px #e0e0e0 solid;
-    display: flex;
-    flex-direction: row-reverse;
-  }
-  .temp{
-      width:50px;
-      height:50px;
-      background:red;
-  }
-  .photo-user{
-    width:50px;
-    height:100%;
-  }
-`
 
 const Comment = (props) => {
   return (
     <CommetBox>
       <div className='content-comment'>
         <div className='photo-user'>
-           <div className='temp'>
-            </div> 
+          <div className='photo-box-comment'>
+            <FontAwesomeIcon icon={faUser} />
+          </div>
         </div>
         <div className='write-user'>
           <div className='name-user'>
-              <span>juan rodriguez</span>
-              <span>45min</span>
+            <span>
+              <strong>juan rodriguez</strong>
+            </span>
+            <span className='time-comment'>
+              <strong>hace 45 minutos </strong>
+            </span>
           </div>
           <div className='write-user-post'>
-              <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae veniam cumque corrupti porro maxime numquam. Id odit amet fugit fugiat debitis repellat, ipsam ducimus consequatur reiciendis inventore, tenetur cupiditate iusto?</span>
+            <span className='post-coment'>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae veniam cumque corrupti
+              porro maxime numquam. Id odit amet fugit fugiat debitis repellat?
+            </span>
           </div>
           <div className='reaction- user'>
-            <button className='send'>Reaccionar</button>
-            <button className='send'>Comentar</button>
+            <button className='actions'>Reaccionar</button>
+            <button className='actions'>Comentar</button>
           </div>
         </div>
       </div>
-      <div className='content-reaction'></div>
+      <div className='content-reaction'>
+        <div className='content-reaction-button'>
+          <button className='reaction-button-like'></button>
+          <button className='reaction-button-no-like'></button>
+          <button className='reaction-button-funny'></button>
+          <span className='count-reaction'>
+            <strong>13</strong>
+          </span>
+        </div>
+        <button className='check-coment'>
+          <span>3</span> Comentarios
+        </button>
+      </div>
+      <div className='content-comments'>
+        <div className='photo-user-comments'>
+          <div className='photo-box-comments '>
+            <FontAwesomeIcon icon={faUser} />
+          </div>
+        </div>
+        <div className='name-user'>
+          <span>
+            <strong>juan rodriguez</strong>
+          </span>
+          <span className='time-comment'>
+            <strong>hace 45 minutos </strong>
+          </span>
+        </div>
+        <div className='write-user-post'>
+          <span className='post-coment'>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae veniam cumque
+          </span>
+        </div>
+      </div>
+      <input className='post-write' type='text' placeholder='Escribe un comentario' />
     </CommetBox>
   )
 }
