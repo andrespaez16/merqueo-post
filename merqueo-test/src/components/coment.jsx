@@ -6,32 +6,43 @@ const Post = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  color: #2acd6c;
   .post-write {
     width: 100%;
     height: 4em;
-    border: 1px grey #e0e0e0;
+    border: none;
+    padding:1em;
+    ::placeholder{
+        color:#2acd6c;
+    }
   }
-  .send{
-    position: absolute;
+  .send {
     width: 8em;
-    right:0;
     height: 2em;
     background: #2acd6c;
     color: #f1f1f1;
     margin: 0.5em;
     border-radius: 5%;
-    border: none; 
+    border: none;
+  }
+  .content-button {
+    width: 100%;
+    background: #ffff;
+    border-top: 1px #e0e0e0 solid;
+    display: flex;
+    flex-direction: row-reverse;
   }
 `
 
 const Coment = () => {
   return (
     <Post>
-      <input className='post-write' type='text' placeholder='escriba' />
-      <div>
+      <input className='post-write' type='text' placeholder='Escribe aqui tu estado' />
+      <div className='content-button'>
         <button className='send'>Publicar</button>
       </div>
     </Post>
+    
   )
 }
 export default Coment
