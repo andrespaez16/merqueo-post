@@ -1,5 +1,5 @@
 import './App.css';
-import Coment from './components/coment'
+import Coment from './components/post'
 import Navbar from './components/layout/navbar'
 import styled from 'styled-components'
 

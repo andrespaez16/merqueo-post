@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Post = styled.div`
+const PostBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -34,15 +34,15 @@ const Post = styled.div`
   }
 `
 
-const Coment = () => {
+const Post = () => {
   return (
-    <Post>
+    <PostBox>
       <input className='post-write' type='text' placeholder='Escribe aqui tu estado' />
       <div className='content-button'>
         <button className='send'>Publicar</button>
       </div>
-    </Post>
+    </PostBox>
     
   )
 }
-export default Coment
+export default Post
