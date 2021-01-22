@@ -1,4 +1,21 @@
 import styled from 'styled-components'
+
+
+
+export const Container = styled.div`
+background:#f6f6f4;
+height: 100 em;
+width:100 em;
+.sub-container{
+  margin: 2% 20%;
+}
+@media (max-width: 768px) {
+  .sub-container{
+    margin: 2% 4%;
+  }
+}
+`
+
 export const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
@@ -77,8 +94,8 @@ export const Nav = styled.nav`
 
 export const CommetBox = styled.div`
   width: 100%;
-  background: #ffff;
   color: #19c15d;
+  font-weight: 500;
   .content-comment {
     width: 100%;
     margin-top: 2em;
@@ -89,6 +106,11 @@ export const CommetBox = styled.div`
     justify-content: space-around;
     border: 1px solid #ececec;
   }
+
+.container-post{
+  background: #ffff;
+  margin-button:2em;
+}
 
   .content-comments {
     width: 100%;
@@ -144,14 +166,24 @@ export const CommetBox = styled.div`
     height: 100%;
   }
 
-  .write-user {
-    width: 80%;
-    height: 50px;
-  }
   .name-user {
     display: flex;
     flex-direction: column;
   }
+
+  
+  .name-user-comment {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+  }
+
+  .write-user {
+    width: 80%;
+    height: 50px;
+    word-break: break-word;
+  }
+
   .time-comment {
     font-size: 0.6em;
     color: #8080805c;
@@ -213,8 +245,8 @@ export const CommetBox = styled.div`
   .write-comments{
     width: 100%;
     background: #ececec;
-    height: 6em;
-    padding: 1.3em
+    height: 4.5em;
+    padding: 1em
   }
   .post-write {
     width: 100%;
@@ -258,5 +290,10 @@ export const PostBox = styled.div`
     border-top: 1px #e0e0e0 solid;
     display: flex;
     flex-direction: row-reverse;
+  }
+  @media (max-width: 768px) {
+    .content-button {
+     display:none; 
+    }
   }
 `

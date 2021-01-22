@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { CommetBox } from '../styles/styled'
+import faker from 'faker'
 
 const Comment = (props) => {
   const { posts } = props
@@ -10,14 +11,13 @@ const Comment = (props) => {
   const [reactionCount, setReactionCount] = useState(0)
   const [comments, setComents] = useState([])
   const [comment, setComent] = useState('')
-  const [userName, setUserName] = useState('Juan R.')
+  const [userName, setUserName] = useState(faker.name.firstName())
 
   const actionOpen = (open) => {
     setOpenComment(!open)
   }
 
   const reactionShow = (show) => {
-    console.log('hello')
     setshowReaction(!show)
     reaction()
   }
@@ -29,6 +29,7 @@ const Comment = (props) => {
   const addNewComment = (e) => {
     setComents([...comments, { autor: userName, comment }])
     e.preventDefault()
+    setUserName(faker.name.firstName())
     resetInput()
   }
 
@@ -36,9 +37,9 @@ const Comment = (props) => {
 
   const resetInput = () => setComent('')
 
-  const renderPost = (post) => {
+  const renderPost = (post, index) => {
     return (
-      <>
+      <div className='container-post'>
         <div className='content-comment'>
           <div className='photo-user'>
             <div className='photo-box-comment'>
@@ -61,7 +62,7 @@ const Comment = (props) => {
               <button
                 className='actions'
                 onClick={() => {
-                  reactionShow(showReaction)
+                  reactionShow(post.showReaction)
                 }}
               >
                 Reaccionar
@@ -119,24 +120,24 @@ const Comment = (props) => {
           )}
         </div>
         {openComment === true ? (
-        <>
-          {comments.map((comment) => renderComment(comment))}
-          <div className='write-comments'>
-            <form onSubmit={addNewComment}>
-              <input
-                className='post-write'
-                type='text'
-                placeholder='Escribe un comentario'
-                value={comment}
-                onChange={newComentWrite}
-              />
-            </form>
-          </div>
-        </>
-      ) : (
-        ''
-      )}
-      </>
+          <>
+            {comments.map((comment) => renderComment(comment))}
+            <div className='write-comments'>
+              <form onSubmit={addNewComment}>
+                <input
+                  className='post-write'
+                  type='text'
+                  placeholder='Escribe un comentario'
+                  value={comment}
+                  onChange={newComentWrite}
+                />
+              </form>
+            </div>
+          </>
+        ) : (
+          ''
+        )}
+      </div>
     )
   }
   const renderComment = (comment) => {
@@ -147,7 +148,7 @@ const Comment = (props) => {
             <FontAwesomeIcon icon={faUser} />
           </div>
         </div>
-        <div className='name-user'>
+        <div className='name-user-comment'>
           <span>
             <strong>{comment.autor}</strong>
           </span>
@@ -155,16 +156,12 @@ const Comment = (props) => {
             <strong>hace 45 minutos </strong>
           </span>
         </div>
-        <div className='write-user-post'>
+        <div className='write-user'>
           <span className='post-coment'>{comment.comment}</span>
         </div>
       </div>
     )
   }
-  return (
-    <CommetBox>
-      {posts.map((post) => renderPost(post))}
-    </CommetBox>
-  )
+  return <CommetBox>{posts.map((post, index) => renderPost(post, index))}</CommetBox>
 }
 export default Comment

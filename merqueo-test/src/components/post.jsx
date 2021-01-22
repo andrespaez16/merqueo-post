@@ -9,7 +9,10 @@ const Post = () => {
     {
       autor: userName,
       post: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae veniam cumque corrupt',
-      reaction:0
+      reaction:0,
+      comments:[],
+      openComment:false,
+      showReaction:false
     }
   ])
 
@@ -17,6 +20,7 @@ const Post = () => {
     setPost([...post, { autor: userName, post: newPost }])
     e.preventDefault()
     resetInput()
+    console.log(post, 'esto es lo que envio')
   }
 
   const newPostWrite = (e) => setNewPost(e.target.value)
