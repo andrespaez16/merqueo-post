@@ -58,7 +58,7 @@ const Comment = (props) => {
             <div className='write-user-post'>
               <span className='post-coment'>{post.post}</span>
             </div>
-            <div className='reaction- user'>
+            <div className='reaction-user'>
               <button
                 className='actions'
                 onClick={() => {
@@ -119,6 +119,26 @@ const Comment = (props) => {
             <span></span>
           )}
         </div>
+        <div className='content-reaction-responsive'>
+          <div className='reaction-user-responsive'>
+            <button
+              className='actions'
+              onClick={() => {
+                reactionShow(post.showReaction)
+              }}
+            >
+              Reaccionar
+            </button>
+            <button
+              className='actions'
+              onClick={() => {
+                actionOpen(openComment)
+              }}
+            >
+              Comentar
+            </button>
+          </div>
+        </div>
         {openComment === true ? (
           <>
             {comments.map((comment) => renderComment(comment))}
@@ -162,6 +182,6 @@ const Comment = (props) => {
       </div>
     )
   }
-  return <CommetBox>{posts.map((post, index) => renderPost(post, index))}</CommetBox>
+  return (<CommetBox>{posts.map((post) => renderPost(post))}</CommetBox>)
 }
 export default Comment

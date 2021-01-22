@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
-
-
 export const Container = styled.div`
+$size-s: 14px;
+
 background:#f6f6f4;
 height: 100 em;
 width:100 em;
 .sub-container{
   margin: 2% 20%;
+  height:100em;
 }
 @media (max-width: 768px) {
   .sub-container{
@@ -48,12 +49,12 @@ export const StyledBurger = styled.div`
     }
   }
 `;
- export const Ul = styled.ul`
+export const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
   li {
-    padding: 18px 10px;
+    padding: 0px 10px;
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
@@ -255,6 +256,42 @@ export const CommetBox = styled.div`
     padding:1em;
     ::placeholder{
         color:#bbbbbb;
+    }
+    
+  }
+  .content-reaction-responsive {
+    display:none;
+  }
+
+  @media (max-width: 768px) {
+    .reaction-user{
+      display:none;
+    }
+    .content-reaction-responsive {
+      display:revert;
+    }
+    .reaction-user-responsive{
+      display: flex;
+      justify-content: space-around;
+    }
+    .actions{
+      width: 15em;
+      height: 3em;
+      background: none;
+      color: #19c15d;
+      border-radius: 5%;
+      padding: 1em 0;
+      text-align: center;
+      border: 1px solid #ececec;
+      font-size: 1rem;
+      font-weight: 700;
+     }
+     .photo-user {
+      width: 3em;
+      height: 100%;
+     }
+     .photo-box-comment{
+      font-size:2em;
     }
   }
 `
