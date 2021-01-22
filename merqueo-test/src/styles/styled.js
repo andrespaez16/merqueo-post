@@ -78,7 +78,7 @@ export const Nav = styled.nav`
 export const CommetBox = styled.div`
   width: 100%;
   background: #ffff;
-  color: #2acd6c;
+  color: #19c15d;
   .content-comment {
     width: 100%;
     margin-top: 2em;
@@ -87,21 +87,23 @@ export const CommetBox = styled.div`
     padding: 1em;
     display: flex;
     justify-content: space-around;
+    border: 1px solid #ececec;
   }
 
   .content-comments {
     width: 100%;
-    height: 10em;
+    height: 4em;
     display: flex;
     padding: 1em;
     display: flex;
     justify-content: space-around;
+    background: #ececec;
   }
   .actions {
     width: 8em;
     height: 2em;
     background: none;
-    color: #2acd6c;
+    color: #19c15d;
     border-radius: 5%;
     border: none;
     text-align: inherit;
@@ -118,7 +120,7 @@ export const CommetBox = styled.div`
     width: auto;
     height: auto;
     background: #f6f6f4;
-    font-size: 4em;
+    font-size: 3em;
     color: gray;
     border-radius: 100%;
     text-align: center;
@@ -133,7 +135,7 @@ export const CommetBox = styled.div`
     text-align: center;
   }
   .photo-user {
-    width: 5em;
+    width: 4em;
     height: 100%;
   }
 
@@ -168,7 +170,7 @@ export const CommetBox = styled.div`
     justify-content: space-between;
     height: 2.4em;
     padding: 0.5em 1em;
-    border: solid 1px gray;
+    border: 1px solid #ececec;
   }
   .reaction-button-like {
     width: 1.2em;
@@ -204,9 +206,24 @@ export const CommetBox = styled.div`
     width: 8em;
     height: 2em;
     background: none;
-    color: #2acd6c;
+    color: #807c7c;
     border-radius: 5%;
     border: none;
+  }
+  .write-comments{
+    width: 100%;
+    background: #ececec;
+    height: 6em;
+    padding: 1.3em
+  }
+  .post-write {
+    width: 100%;
+    height: 3em;
+    border: none;
+    padding:1em;
+    ::placeholder{
+        color:#bbbbbb;
+    }
   }
 `
 export const PostBox = styled.div`
@@ -214,20 +231,22 @@ export const PostBox = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: #2acd6c;
+  color: #19c15d;
+  border: 1px solid #ececec;
   .post-write {
     width: 100%;
     height: 4em;
     border: none;
     padding:1em;
     ::placeholder{
-        color:#2acd6c;
+        color:#19c15d;
+        font-weight: 300;
     }
   }
   .send {
     width: 8em;
     height: 2em;
-    background: #2acd6c;
+    background: #19c15d;
     color: #f1f1f1;
     margin: 0.5em;
     border-radius: 5%;

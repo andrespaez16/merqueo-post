@@ -1,8 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import {CommetBox } from '../styles/styled'
-
+import { CommetBox } from '../styles/styled'
 
 const Comment = (props) => {
   return (
@@ -67,7 +66,29 @@ const Comment = (props) => {
           </span>
         </div>
       </div>
-      <input className='post-write' type='text' placeholder='Escribe un comentario' />
+      <div className='content-comments'>
+        <div className='photo-user-comments'>
+          <div className='photo-box-comments '>
+            <FontAwesomeIcon icon={faUser} />
+          </div>
+        </div>
+        <div className='name-user'>
+          <span>
+            <strong>juan rodriguez</strong>
+          </span>
+          <span className='time-comment'>
+            <strong>hace 45 minutos </strong>
+          </span>
+        </div>
+        <div className='write-user-post'>
+          <span className='post-coment'>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae veniam cumque
+          </span>
+        </div>
+      </div>
+      <div className='write-comments'>
+        <input className='post-write' type='text' placeholder='Escribe un comentario' />
+      </div>
     </CommetBox>
   )
 }
