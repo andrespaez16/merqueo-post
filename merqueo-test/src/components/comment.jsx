@@ -6,6 +6,7 @@ import { CommetBox } from '../styles/styled'
 const Comment = (props) => {
   const { posts } = props
   const [openComment, setOpenComment] = useState(false)
+  const [showReaction, setshowReaction] = useState(false)
   const [reactionCount, setReactionCount] = useState(0)
   const [comments, setComents] = useState([])
   const [comment, setComent] = useState('')
@@ -13,6 +14,12 @@ const Comment = (props) => {
 
   const actionOpen = (open) => {
     setOpenComment(!open)
+  }
+
+  const reactionShow = (show) => {
+    console.log('hello')
+    setshowReaction(!show)
+    reaction()
   }
 
   const reaction = () => {
@@ -54,7 +61,7 @@ const Comment = (props) => {
               <button
                 className='actions'
                 onClick={() => {
-                  reaction()
+                  reactionShow(showReaction)
                 }}
               >
                 Reaccionar
@@ -71,38 +78,64 @@ const Comment = (props) => {
           </div>
         </div>
         <div className='content-reaction'>
-          <div className='content-reaction-button'>
+          {reactionCount > 0 ? (
+            <div className='content-reaction-button'>
+              <button
+                className='reaction-button-like'
+                onClick={() => {
+                  reaction()
+                }}
+              ></button>
+              <button
+                className='reaction-button-no-like'
+                onClick={() => {
+                  reaction()
+                }}
+              ></button>
+              <button
+                className='reaction-button-funny'
+                onClick={() => {
+                  reaction()
+                }}
+              ></button>
+              <span className='count-reaction'>
+                <strong>{reactionCount}</strong>
+              </span>
+            </div>
+          ) : (
+            <span></span>
+          )}
+          {comments.length > 0 ? (
             <button
-              className='reaction-button-like'
+              className='check-coment'
               onClick={() => {
-                reaction()
+                actionOpen(openComment)
               }}
-            ></button>
-            <button
-              className='reaction-button-no-like'
-              onClick={() => {
-                reaction()
-              }}
-            ></button>
-            <button
-              className='reaction-button-funny'
-              onClick={() => {
-                reaction()
-              }}
-            ></button>
-            <span className='count-reaction'>
-              <strong>{reactionCount}</strong>
-            </span>
-          </div>
-          <button
-            className='check-coment'
-            onClick={() => {
-              actionOpen(openComment)
-            }}
-          >
-            <span>3</span> Comentarios
-          </button>
+            >
+              <span>{comments.length}</span> Comentarios
+            </button>
+          ) : (
+            <span></span>
+          )}
         </div>
+        {openComment === true ? (
+        <>
+          {comments.map((comment) => renderComment(comment))}
+          <div className='write-comments'>
+            <form onSubmit={addNewComment}>
+              <input
+                className='post-write'
+                type='text'
+                placeholder='Escribe un comentario'
+                value={comment}
+                onChange={newComentWrite}
+              />
+            </form>
+          </div>
+        </>
+      ) : (
+        ''
+      )}
       </>
     )
   }
@@ -131,24 +164,6 @@ const Comment = (props) => {
   return (
     <CommetBox>
       {posts.map((post) => renderPost(post))}
-      {openComment === true ? (
-        <>
-          {comments.map((comment) => renderComment(comment))}
-          <div className='write-comments'>
-            <form onSubmit={addNewComment}>
-              <input
-                className='post-write'
-                type='text'
-                placeholder='Escribe un comentario'
-                value={comment}
-                onChange={newComentWrite}
-              />
-            </form>
-          </div>
-        </>
-      ) : (
-        ''
-      )}
     </CommetBox>
   )
 }
