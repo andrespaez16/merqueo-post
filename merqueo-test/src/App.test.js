@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { React } from 'react'
+import {Comment} from './components/comment'
+import { mount } from "enzyme"
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe( 'el composnente se renderiza', ()=>{
+  it('render sin problemas', ()=>{
+    const post =[{autor:'elias', post:'lorem'}]
+    const wrapper = mount(<Comment posts={post}/>)
+    expect(wrapper).toMatchSnapshot()
+  })
+} )
