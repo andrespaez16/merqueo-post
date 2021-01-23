@@ -1,12 +1,12 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Esta es una prueba de una blog 
+This project is made in react as a framework and libraries that were configured for styles and logic that needed faker JS, enzyme, styled-component.
+n this project you can post, its respective post will be shown where you can react from the button and icons to the comment method itself, the responsive is working for any device.
 
 ## Available Scripts
 
-In the project directory, you can run:
+In order to access the project you must enter the merqueo/merqueo-test folder and execute the following command
 
-### `yarn start`
+### `npm i start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
