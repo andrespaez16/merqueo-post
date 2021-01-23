@@ -1,4 +1,5 @@
-# Esta es una prueba de una blog 
+# This is a test of a blog
+
 This project is made in react as a framework and libraries that were configured for styles and logic that needed faker JS, enzyme, styled-component.
 n this project you can post, its respective post will be shown where you can react from the button and icons to the comment method itself, the responsive is working for any device.
 
